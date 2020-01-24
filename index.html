@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aplicacion de tareas</title>
+    <link rel="stylesheet" href="lumen/bootstrap.min.css">
+</head>
+<body>
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+       <a href="#" class="navbar-brand">Aplicacion de tareas</a>
+       <ul class="navbar-nav ml-auto">
+           <form action="#" class="form-inline my-2 my-lg-0">
+               <input type="search" id="buscar" class="form-control mr-sm-2" placeholder="Busca tu tarea">
+               <button class="btn btn-success my-2 my-sm-0" type="submit">Buscar</button>
+           </form>
+       </ul>
+   </nav>
+   
+   <div class="container p-4">
+       <div class="row">
+           <div class="col-md-5">
+               <div class="card">
+                   <div class="card-body">
+                      <h3 class="card-title">Agrega una tarea</h3>
+                       <form id="form_tarea">
+                           <div class="form-group">
+                               <input type="text" class="form-control" id="nombre" placeholder="Nombre de la tarea">
+                           </div>
+                            <div class="form-group">
+                               <textarea class="form-control" id="descripcion" cols="30" rows="10" placeholder="Descripcion de la tarea"></textarea>
+                           </div>
+                           <button type="submit" class="btn btn-primary btn-block text-center" id="guardarTarea">Guardar tarea</button>
+                       </form>
+                   </div>
+               </div>
+           </div>
+           <div class="col-md-7">
+              <h2>Lista de tareas</h2>
+              <div class="card my-4" id="resultadoTarea">
+                  <div class="card-body">
+                      <ul id="contenedor"></ul>
+                  </div>
+              </div>
+               <table class="table table-bordered table-sm">
+                   <thead>
+                       <tr>
+                           <th>Id</th>
+                           <th>Nombre</th>
+                           <th>Descripcion</th>
+                           <th></th>
+                           <th></th>
+                       </tr>
+                   </thead>
+                   <tbody id="tareas"></tbody>
+               </table>
+           </div>
+       </div>
+   </div>
+
+      
+<!-- Modal -->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar tarea</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Edita los datos de la tarea</p>
+        <form id="form_editar">
+             <div class="form-group">
+                <input type="text" class="form-control" id="id_tarea" hidden>
+             </div>
+              <div class="form-group">
+                <label for="nombre_tarea">Nombre</label>
+                <input type="text" class="form-control" id="nombre_tarea">
+              </div>
+                <div class="form-group">
+                <label for="des_tarea">Descripcion</label>
+                <textarea id="des_tarea" class="form-control" cols="30" rows="10"></textarea>
+              </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" id="editarTarea">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+   
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="aplicacion.js"></script>
+</body>
+</html>
